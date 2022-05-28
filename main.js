@@ -1,5 +1,9 @@
 // global variables
 let shuffledCards;
+let cardsUsed = 0;
+let playercount = 0;
+let playercreds = [];
+let credsused = [];
 
 
 // check if x is in between y and z
@@ -34,7 +38,6 @@ function Deck()
         {
             cards[i] = values[i-39]+' of spades';
         }
-
     }
     // returns the final array
     return(cards);
@@ -51,45 +54,58 @@ function CreateHand(list)
 {
     let hand = [];
     // take the first two cards of the deck and put them in your hand
-    for(let i = 0; i<= 1; i++)
+    for(let i = cardsUsed; i<= cardsUsed+1; i++)
     {
         hand[i] = list[i];
     }
     console.log("your hand is:")
-    for(let i = 0; i <= 1; i++)
+    for(let i = cardsUsed; i <= cardsUsed+1; i++)
     {
         console.log(hand[i]);
     }
+    cardsUsed += 2;
     return(hand);
 }
 
 function TableCards()
 {
-    // select the 5 first cards to put on the table, 3 are show, 2 are unknown. after every round, reveal one card.
+    console.log("table Cards are:");
+    for(let i = cardsUsed; i < cardsUsed+5; i++)
+    {
+        console.log(shuffledCards[i]);
+    }
 }
 
-function round()
+function createPlayers()
 {
-    //  is used to keep track of which round it is
-    let round = 1;
+    // ask how many people are playing
+    // return how many players there are
+}
 
-    if(round == 1)
-    {
-        console.log("table Cards are:");
-        for(let i = 0; i <= 4; i++)
-        {
-            console.log(shuffledCards[i]);
-        }
-    }
+function Round()
+{
+
+
+    // create a hand for each player
+
+
+    TableCards();
+
+
+    // let people put in chips
+    //
 
 }
 
 function game()
 {
     shuffledCards = shuffle(Deck());
+    console.log(shuffledCards);
     CreateHand(shuffledCards);
 
-    round();
+    Round();
+    let round = 1;
+
     let players = [];
 
 }
